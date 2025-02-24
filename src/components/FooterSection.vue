@@ -51,8 +51,7 @@
 
 .logo-subtext {
   display: block;
-  /* font-size: 14px; */
-  font-size: clamp(10px, 2vw, 14px);
+  font-size: clamp(2px, 2vw, 7px);
   letter-spacing: 2px;
   color: white;
   text-align: center;
