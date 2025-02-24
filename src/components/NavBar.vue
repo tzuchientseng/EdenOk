@@ -1,66 +1,125 @@
 <template>
-  <div class="NavBar">
-    <div class="logo-container">
-      Eden<span class="highlight">Ok</span>
-      <div class="logo-subtext">Tutorial</div>
+  <nav class="NavBar">
+    <!-- Logo -->
+    <div class="NavBar__logo">
+      <font-awesome-icon :icon="['fas', 'house-chimney']" class="icon" aria-label="Home" />
+      <p class="NavBar__brand">伊甸OK</p>
     </div>
 
+    <!-- Menu -->
+    <ul class="NavBar__menu">
+      <li v-for="item in menuItems" :key="item.text">
+        <a :href="item.link">{{ item.text }}</a>
+      </li>
+    </ul>
 
-    <font-awesome-icon :icon="['fas', 'coins']" style="color: gold; font-size: 30px;" />
-    <font-awesome-icon :icon="['fas', 'user']" style="color: white; font-size: 24px;" />
-  </div>
+    <!-- Icons -->
+    <div class="NavBar__icons">
+      <font-awesome-icon :icon="['fas', 'coins']" class="icon gold-icon" aria-label="Coins" />
+      <font-awesome-icon :icon="['fas', 'user']" class="icon" aria-label="User" />
+    </div>
+  </nav>
 </template>
 
-<script setup lang="ts">
+<script>
+export default {
+  data() {
+    return {
+      menuItems: [
+        { text: "介紹", link: "#" }, // Purpose: 教學 傳承
+        { text: "伯特利", link: "#" }, // Guitar
+        { text: "畢士大池", link: "#" }, // Magic 
+        { text: "客西馬尼園", link: "#" }, // 
+        { text: "馬可樓", link: "#" },
+        { text: "何烈山", link: "#" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Sansita:wght@701&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
 .NavBar {
-  /* background-color: white; */
   display: flex;
   align-items: center;
-  height: auto;
+  justify-content: space-between;
+  background-color: #181818;
+  height: 70px;
   padding: 0 20px;
 }
 
-.logo-container {
-  display: inline-block;
-  font-family: 'Sansita', sans-serif;
-  /* font-size: 48px; */
-  font-size: clamp(12px, 2vw, 48px); /* 最小 24px，最大 48px，隨視窗調整 */
-  text-align: center;
+.NavBar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.NavBar__brand {
+  font-family: "Audiowide", sans-serif;
+  font-size: 20px;
+  color: #0099a1;
+}
+
+.NavBar__menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.NavBar__menu li a {
+  text-decoration: none;
   color: white;
-  padding: 10px 17px;
-  margin: 7px;
-  margin-top: 10px;
-  border: 3px solid white;
-  border-radius: 10px;
-  position: relative;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
 }
 
-.highlight {
-  color:#0099A1;
-  font-weight: bold;
+.NavBar__menu li a:hover {
+  opacity: 0.7;
 }
 
-.highlight::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: gold;
-  margin: 2px auto;
+.NavBar__icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.logo-subtext {
-  display: block;
-  /* font-size: 14px; */
-  font-size: clamp(10px, 2vw, 14px);
-  letter-spacing: 2px;
-  color: white;
-  text-align: center;
-  margin-top: 4px;
+.icon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  color: rgb(167, 167, 167);
+}
+
+.icon:hover {
+  opacity: 0.7;
+}
+
+.gold-icon {
+  color: gold;
+  font-size: 30px;
+}
+
+/* RWD */
+@media (max-width: 768px) {
+  .NavBar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .NavBar__menu {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .NavBar__icons {
+    margin-top: 10px;
+  }
 }
 </style>

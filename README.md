@@ -7,4 +7,5 @@
 `npm install vuex@next`
 `npm install --save @fortawesome/vue-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons`
 `npm install gh-pages --save-dev`
+`npm install @fortawesome/free-regular-svg-icons`
 ```
