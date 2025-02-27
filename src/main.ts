@@ -6,11 +6,11 @@ import store from './store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-// Import the coin-related icons
-import { faUser, faCoins } from '@fortawesome/free-solid-svg-icons';
+// Import FontAwesome icons
+import { faUser, faCoins, faHouseChimney } from '@fortawesome/free-solid-svg-icons';
 
 // Add the icons to the library
-library.add( faUser, faCoins);
+library.add(faUser, faCoins, faHouseChimney);
 
 // Create and mount the Vue app
 createApp(App)

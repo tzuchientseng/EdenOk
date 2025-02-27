@@ -1,11 +1,16 @@
 <template>
   <NavBar />
   <MainSection />
+  <ContentSection />
+  <FooterSection />
 </template>
 
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue';
 import MainSection from './pages/MainSection.vue';
+import FooterSection from './components/FooterSection.vue';
+import ContentSection from './pages/ContentSection.vue';
+
 </script>
 
 <style>
